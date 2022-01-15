@@ -1,0 +1,6 @@
+<div [ngClass]="{ enabled: task.enabled }" class="d-flex bd-highlight bg-light text-secondary mb-2 p-20">
+    <div class="h3 p-2 w-100 bd-highlight"><span class="alert alert-info p-1">{{ task.id }}</span> {{ task.name }}</div>    
+    <div class="p-2 flex-shrink-1 bd-highlight m-2 border text-white h5 bg-success" *ngIf="task.enabled else pending">Done</div>
+    <ng-template #pending><div class="flex-shrink-1 bd-highlight border text-black h5 bg-warning">Pending</div></ng-template>
+    <button class="btn btn-danger" (click)="onDelete(task)">Delete</button>
+</div>
