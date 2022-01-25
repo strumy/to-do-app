@@ -9,22 +9,20 @@ import {Task} from '../Task';
 export class TaskItemComponent implements OnInit {
   @Input() task!: Task;
   @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter();
+  @Output() onToggleEnabled: EventEmitter<Task> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  toggleStatus(enabled: boolean) {
-    if (enabled == true) {
-      return "Done"
-    } else {
-      return "Pending"
-    }
-  }
-
   onDelete(task: Task) {
     this.onDeleteTask.emit(task);
+  }
+
+  onToggle(task: Task) {
+    /*console.log(task.id);*/
+    this.onToggleEnabled.emit(task);
   }
 
 }

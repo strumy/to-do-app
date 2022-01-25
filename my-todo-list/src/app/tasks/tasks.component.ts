@@ -29,4 +29,10 @@ export class TasksComponent implements OnInit {
     .subscribe(
       () => (this.tasks = this.tasks.filter(t => t.id !== task.id)));
   }
+
+  toggleEnabled(task: Task){
+    task.enabled = !task.enabled;
+    /*console.log(task.enabled);*/
+    this.taskService.updateTaskEnabled(task).subscribe();
+  }
 }

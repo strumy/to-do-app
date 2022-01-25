@@ -1,3 +1,11 @@
-<h1>{{ title}}</h1>
-<button class="btn btn-warning" (click)="toggleAddEntry()">Add Task</button>
-<app-task-item *ngFor="let task of tasks" [task] ="task" (onDeleteTask)="deleteTask(task)"></app-task-item>
+<div class="d-flex bd-highlight justify-content-between mb-5">
+    <h1>{{ title}}</h1>
+    <button class="btn btn-warning" (click)="toggleAddEntry()">Add Task</button>
+</div>
+<app-add-task></app-add-task>
+<app-task-item 
+    *ngFor="let task of tasks" 
+    [task] ="task" 
+    (onDeleteTask)="deleteTask(task)"
+    (onToggleEnabled)="toggleEnabled(task)">
+</app-task-item>

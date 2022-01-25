@@ -1,3 +1,7 @@
-.task-reminder {
+.task {
+    border-left: 5px solid beige;
+}
+
+.task.enabled {
     border-left: 5px solid green;
 }
